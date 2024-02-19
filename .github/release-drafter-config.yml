@@ -1,4 +1,4 @@
-name-template: "관리자홈페이지 v$RESOLVED_VERSION 🌈"
+name-template: "관리자홈페이지 v$RESOLVED_VERSION $BRANCH_NAME $DATE 🌈"
 tag-template: "v$RESOLVED_VERSION"
 categories:
   # - title: "🚀 Features"
