@@ -24,6 +24,7 @@ jobs:
           node-version: '20'
           cache: yarn
           registry-url: https://registry.npmjs.org
+          cache-dependency-path: ./client/package-lock.json
       - name: version
         id: version
         run: |
