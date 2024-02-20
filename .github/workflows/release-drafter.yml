@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: '20'  # 업데이트된 부분
 
-      - uses: release-drafter/release-drafter@v7  # 업데이트된 부분
+      - uses: release-drafter/release-drafter@v6  # 업데이트된 부분
         with:
           config-name: release-drafter-config.yml
         env:
