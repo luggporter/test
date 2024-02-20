@@ -8,26 +8,46 @@ on:
       - closed
 permissions:
   contents: read
+
 jobs:
-  update_release_draft:
-    permissions:
-      contents: write
-      pull-requests: write
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.head_ref }}  # 업데이트된 부분
+          fetch-depth: 0
 
-      - name: Set up Node.js
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # 업데이트된 부분
-          check-latest: true  
+          node-version: '20'
+          cache: yarn
+          registry-url: https://registry.npmjs.org
 
-      - uses: release-drafter/release-drafter@v6  # 업데이트된 부분
+      - name: yarn install
+        run: yarn install --frozen-lockfile
+
+      - name: version
+        id: version
+        run: |
+          tag=${GITHUB_REF/refs\/tags\//}
+          version=${tag#v}
+          major=${version%%.*}
+          echo "tag=${tag}" >> $GITHUB_OUTPUT
+          echo "version=${version}" >> $GITHUB_OUTPUT
+          echo "major=${major}" >> $GITHUB_OUTPUT
+
+      - uses: release-drafter/release-drafter@master
         with:
+          version: ${{ steps.version.outputs.version }}
           config-name: release-drafter-config.yml
+          publish: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: force update major tag
+        run: |
+          git tag v${{ steps.version.outputs.major }} ${{ steps.version.outputs.tag }} -f
+          git push origin refs/tags/v${{ steps.version.outputs.major }} -f
+
