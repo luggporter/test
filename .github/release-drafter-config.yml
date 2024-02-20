@@ -29,13 +29,13 @@ exclude-labels:
 version-resolver:
   major:
     labels:
-      - 'Major'
+      - 'major'
   minor:
     labels:
-      - 'Minor'
+      - 'minor'
   patch:
     labels:
-      - 'Patch'
+      - 'patch'
   default: patch
 template: |
   $CHANGES
