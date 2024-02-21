@@ -1,9 +1,9 @@
 name: Update Notion with GitHub Releases
 
 on:
-  push:
-    branches:
-      - main  # 변경 필요
+  release:
+    types:
+      - created
 
 jobs:
   update-notion:
