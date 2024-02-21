@@ -2,8 +2,7 @@ name: Update Notion with GitHub Releases
 
 on:
   release:
-    types:
-      - created
+    types: [published]
 
 jobs:
   update-notion:
