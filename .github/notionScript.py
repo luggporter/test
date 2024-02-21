@@ -16,6 +16,8 @@ GITHUB_REPO_OWNER = 'luggporter'
 GITHUB_REPO_NAME = 'test'
 
 logging.info(f'https://api.github.com/repos/{GITHUB_REPO_OWNER}/{GITHUB_REPO_NAME}/releases')
+logging.info(NOTION_API_TOKEN)
+logging.info(GITHUB_API_TOKEN)
 
 # GitHub 릴리스 정보 가져오기
 response = requests.get(f'https://api.github.com/repos/{GITHUB_REPO_OWNER}/{GITHUB_REPO_NAME}/releases',
