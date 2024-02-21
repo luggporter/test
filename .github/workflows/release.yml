@@ -15,7 +15,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8  # 변경 가능
+        python-version: 3.8 
 
     - name: Install dependencies
       run: |
@@ -26,5 +26,5 @@ jobs:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NOTION_API_TOKEN: 'secret_XWyDXf8udaiO3SAxejWq5RdMz5LEDniw30s64NX9bjT'
         # NOTION_API_TOKEN: ${{ secrets.NOTION_API_TOKEN }}
-        NOTION_DATABASE_ID: '62c7749c45a9408aa4c720747b5addb3'  # 변경 가능
-      run: python .github/notionScript.py  # 스크립트 경로 변경
+        NOTION_DATABASE_ID: '62c7749c45a9408aa4c720747b5addb3' 
+      run: python .github/notionScript.py  
