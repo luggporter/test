@@ -24,7 +24,7 @@ jobs:
 
     - name: Run the script
       env:
-        GITHUB_API_TOKEN: ${{ secrets.GITHUB_API_TOKEN }}
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NOTION_API_TOKEN: 'secret_XWyDXf8udaiO3SAxejWq5RdMz5LEDniw30s64NX9bjT'
         # NOTION_API_TOKEN: ${{ secrets.NOTION_API_TOKEN }}
         NOTION_DATABASE_ID: '62c7749c45a9408aa4c720747b5addb3'  # 변경 가능
