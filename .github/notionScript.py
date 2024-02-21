@@ -21,6 +21,17 @@ logging.info(f'https://api.github.com/repos/{GITHUB_REPO_OWNER}/{GITHUB_REPO_NAM
 response = requests.get(f'https://api.github.com/repos/{GITHUB_REPO_OWNER}/{GITHUB_REPO_NAME}/releases',
                         headers={'Authorization': f'token {GITHUB_API_TOKEN}'})
 
+# 에러 체크 추가
+if response.status_code != 200:
+    print(f"Failed to fetch GitHub releases. Status code: {response.status_code}")
+    print(response.text)
+    exit(1)
+
+# response.json()의 형태가 예상과 다를 경우에 대비하여 추가적인 체크
+if not isinstance(response.json(), list):
+    print("GitHub API response is not a list. Exiting...")
+    exit(1)
+
 release_dates = [release['created_at'] for release in response.json()]
 
 github_release_notes_list = [
