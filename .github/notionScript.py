@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO)
 
 # Notion API 토큰 및 데이터베이스 ID 설정
 NOTION_API_TOKEN = os.getenv('NOTION_API_TOKEN')
-NOTION_DATABASE_ID = '62c7749c45a9408aa4c720747b5addb3'
+NOTION_DATABASE_ID = os.getenv('NOTION_API_DATABASE_ID')
 
 # GitHub API 토큰 및 저장소 설정
 GITHUB_API_TOKEN = os.getenv('GITHUB_API_TOKEN')
