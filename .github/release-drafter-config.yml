@@ -22,7 +22,8 @@ categories:
   - title: 'ETC'
     labels:
       - "*"
-change-template: '* $TITLE (#$NUMBER) by @$AUTHOR'
+# change-template: '* $TITLE (#$NUMBER) by @$AUTHOR'
+change-template: '- $TITLE'
 change-title-escapes: '\<*_&#@`'
 exclude-labels:
   - 'Main'
