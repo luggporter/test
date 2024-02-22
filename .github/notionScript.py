@@ -90,11 +90,16 @@ def create_notion_page():
             'properties': {
                 '배포날짜': {
                     'type': 'title',
-                    'title': [{'text': {'content': kst_datetime.strftime("%Y-%m-%d %H:%M:%S")}}],
+                    'title': [{'text': {'content': kst_datetime.strftime("%Y년 %m월 %d일 \n%H:%M:%S")}}],
+                },
+                '버전': {
+                    'type': 'rich_text',
+                    'rich_text': [{'text': {'content': row['content']['name'].replace('관리자홈페이지 ', '').replace('🌈', '')}}],
                 },
                 '릴리즈노트_내용': {
                     'type': 'rich_text',
-                    'rich_text': [{'text': {'content': row['content']['name'] + '\n\n' + github_release_notes_content}}],
+                    # 'rich_text': [{'text': {'content': str(row['content'])}}],
+                    'rich_text': [{'text': {'content': github_release_notes_content}}],
                 },
             },
         }
